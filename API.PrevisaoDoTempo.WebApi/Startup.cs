@@ -56,6 +56,8 @@ namespace API.PrevisaoDoTempo.WebAPI
                 app.UseDeveloperExceptionPage();
             }
 
+            UpdateDatabase(app);
+            
             app.ConfigureExceptionHandler();
 
             // TODO app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
@@ -70,6 +72,25 @@ namespace API.PrevisaoDoTempo.WebAPI
             {
                 endpoints.MapControllers();
             });
+
+            Console.WriteLine("A aplicação está pronta para uso!");
+        }
+
+        private static void UpdateDatabase(IApplicationBuilder app)
+        {
+            Console.WriteLine("Criando a base de dados, por favor aguarde...");
+
+            using (var serviceScope = app.ApplicationServices
+                .GetRequiredService<IServiceScopeFactory>()
+                .CreateScope())
+            {
+                using (var context = serviceScope.ServiceProvider.GetService<PrevisaoDoTempoContext>())
+                {
+                    context.Database.Migrate();
+                }
+            }
+
+            Console.WriteLine("Base de dados criada com sucesso!");
         }
     }
 }

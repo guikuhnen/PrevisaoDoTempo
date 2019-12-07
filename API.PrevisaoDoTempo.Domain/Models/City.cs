@@ -1,18 +1,17 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace API.PrevisaoDoTempo.Domain.Models
 {
     public class City
     {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
-        [Required]
-        [MaxLength(50)]
         public string Name { get; set; }
 
         // Id da cidade no serviço externo
-        [Required]
-        [MaxLength(30)]
         public string CustomCode { get; set; }
 
         [MaxLength(3)]
