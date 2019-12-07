@@ -5,6 +5,16 @@ VisualStudioVersion = 16.0.29411.108
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.PrevisaoDoTempo.WebApi", "API.PrevisaoDoTempo.WebApi\API.PrevisaoDoTempo.WebApi.csproj", "{ED510843-1C77-4C87-8EC4-A75CA4490352}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.PevisaoDoTempo.Application", "API.PevisaoDoTempo.Application\API.PevisaoDoTempo.Application.csproj", "{BDEE1FCB-3254-46EF-8555-1D455B5F2107}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.PrevisaoDoTempo.Domain", "API.PrevisaoDoTempo.Domain\API.PrevisaoDoTempo.Domain.csproj", "{60ADD647-1049-4C99-8F27-AA17E62466FE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infra", "Infra", "{9E563B7F-1EFE-4C32-A1FD-18DAC286D5E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.PevisaoDoTempo.Infra.Data", "API.PevisaoDoTempo.Infra.Data\API.PevisaoDoTempo.Infra.Data.csproj", "{41E35BF3-D63F-4139-AC2F-540F81A354F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API.PevisaoDoTempo.Infra.External", "API.PevisaoDoTempo.Infra.External\API.PevisaoDoTempo.Infra.External.csproj", "{5FF12ACD-5BF2-4575-ADF2-5C6020A4DDDD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,9 +25,29 @@ Global
 		{ED510843-1C77-4C87-8EC4-A75CA4490352}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ED510843-1C77-4C87-8EC4-A75CA4490352}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ED510843-1C77-4C87-8EC4-A75CA4490352}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BDEE1FCB-3254-46EF-8555-1D455B5F2107}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BDEE1FCB-3254-46EF-8555-1D455B5F2107}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BDEE1FCB-3254-46EF-8555-1D455B5F2107}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BDEE1FCB-3254-46EF-8555-1D455B5F2107}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60ADD647-1049-4C99-8F27-AA17E62466FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60ADD647-1049-4C99-8F27-AA17E62466FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60ADD647-1049-4C99-8F27-AA17E62466FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60ADD647-1049-4C99-8F27-AA17E62466FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{41E35BF3-D63F-4139-AC2F-540F81A354F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{41E35BF3-D63F-4139-AC2F-540F81A354F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{41E35BF3-D63F-4139-AC2F-540F81A354F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{41E35BF3-D63F-4139-AC2F-540F81A354F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5FF12ACD-5BF2-4575-ADF2-5C6020A4DDDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5FF12ACD-5BF2-4575-ADF2-5C6020A4DDDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5FF12ACD-5BF2-4575-ADF2-5C6020A4DDDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5FF12ACD-5BF2-4575-ADF2-5C6020A4DDDD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{41E35BF3-D63F-4139-AC2F-540F81A354F1} = {9E563B7F-1EFE-4C32-A1FD-18DAC286D5E3}
+		{5FF12ACD-5BF2-4575-ADF2-5C6020A4DDDD} = {9E563B7F-1EFE-4C32-A1FD-18DAC286D5E3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {6BEF68FF-96C3-400E-856F-71182A02C52B}

@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\API.PevisaoDoTempo.Infra.Data\API.PevisaoDoTempo.Infra.Data.csproj" />
+    <ProjectReference Include="..\API.PevisaoDoTempo.Infra.External\API.PevisaoDoTempo.Infra.External.csproj" />
+    <ProjectReference Include="..\API.PrevisaoDoTempo.Domain\API.PrevisaoDoTempo.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
