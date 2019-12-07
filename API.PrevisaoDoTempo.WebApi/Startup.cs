@@ -32,7 +32,7 @@ namespace API.PrevisaoDoTempo.WebAPI
             services.AddDbContext<PrevisaoDoTempoContext>(options => 
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            // TODO services.AddCors();
+            services.AddCors();
 
             services.Configure<OpenWeatherApiConfiguration>(Configuration.GetSection("OpenWeatherApiConfiguration"));
 
@@ -60,7 +60,7 @@ namespace API.PrevisaoDoTempo.WebAPI
             
             app.ConfigureExceptionHandler();
 
-            // TODO app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
             app.UseHttpsRedirection();
 

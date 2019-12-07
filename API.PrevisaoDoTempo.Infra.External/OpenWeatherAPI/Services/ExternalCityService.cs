@@ -17,7 +17,7 @@ namespace API.PrevisaoDoTempo.Infra.External.OpenWeatherAPI.Services
         // Busca informação do clima dos próximos 5 dias da cidade pelo CustomCode informado
         public CityForecastDTO GetCityForecast(string customCode)
         {
-            string requestUrl = base.Configuration.BaseUrl + $"forecast?id={customCode}&apiKey={base.Configuration.ApiKey}";
+            string requestUrl = base.Configuration.BaseUrl + $"forecast?id={customCode}&apiKey={base.Configuration.ApiKey}&units=metric";
             string jsonResult = this.ExecuteRequest(requestUrl);
 
             return JsonConvert.DeserializeObject<CityForecastDTO>(jsonResult);
