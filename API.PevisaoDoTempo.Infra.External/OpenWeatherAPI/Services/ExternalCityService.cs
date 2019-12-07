@@ -1,11 +1,11 @@
-﻿using API.PevisaoDoTempo.Infra.External.DTOs;
-using API.PevisaoDoTempo.Infra.External.OpenWeatherAPI.Configuration;
+﻿using API.PrevisaoDoTempo.Infra.External.DTOs;
+using API.PrevisaoDoTempo.Infra.External.OpenWeatherAPI.Configuration;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using System;
 using System.Net.Http;
 
-namespace API.PevisaoDoTempo.Infra.External.OpenWeatherAPI.Services
+namespace API.PrevisaoDoTempo.Infra.External.OpenWeatherAPI.Services
 {
     public class ExternalCityService : BaseService, IExternalCityService
     {

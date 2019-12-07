@@ -1,11 +1,11 @@
-﻿using API.PevisaoDoTempo.Infra.Data.Context;
+﻿using API.PrevisaoDoTempo.Infra.Data.Context;
 using API.PrevisaoDoTempo.Domain.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace API.PevisaoDoTempo.Infra.Data.Repository
+namespace API.PrevisaoDoTempo.Infra.Data.Repository
 {
     public class CityRepository : ICityRepository
     {

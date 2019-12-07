@@ -5,7 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\API.PevisaoDoTempo.Infra.Data\API.PevisaoDoTempo.Infra.Data.csproj" />
+    <ProjectReference Include="..\API.PevisaoDoTempo.Infra.Data\API.PrevisaoDoTempo.Infra.Data.csproj" />
     <ProjectReference Include="..\API.PevisaoDoTempo.Infra.External\API.PevisaoDoTempo.Infra.External.csproj" />
     <ProjectReference Include="..\API.PrevisaoDoTempo.Domain\API.PrevisaoDoTempo.Domain.csproj" />
   </ItemGroup>

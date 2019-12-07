@@ -1,4 +1,4 @@
-﻿namespace API.PevisaoDoTempo.Infra.External.DTOs
+﻿namespace API.PrevisaoDoTempo.Infra.External.DTOs
 {
     public class WeatherMinimalInfoDTO
     {

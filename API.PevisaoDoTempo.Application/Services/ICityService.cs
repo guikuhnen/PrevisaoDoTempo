@@ -1,7 +1,7 @@
 ﻿using API.PrevisaoDoTempo.Domain.Models;
 using System.Collections.Generic;
 
-namespace API.PevisaoDoTempo.Application.Services
+namespace API.PrevisaoDoTempo.Application.Services
 {
     public interface ICityService
     {

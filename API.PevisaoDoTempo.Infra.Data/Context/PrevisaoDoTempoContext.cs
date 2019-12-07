@@ -1,7 +1,7 @@
 ﻿using API.PrevisaoDoTempo.Domain.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace API.PevisaoDoTempo.Infra.Data.Context
+namespace API.PrevisaoDoTempo.Infra.Data.Context
 {
     public class PrevisaoDoTempoContext : DbContext
     {

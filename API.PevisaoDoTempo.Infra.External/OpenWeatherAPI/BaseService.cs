@@ -1,7 +1,7 @@
-﻿using API.PevisaoDoTempo.Infra.External.OpenWeatherAPI.Configuration;
+﻿using API.PrevisaoDoTempo.Infra.External.OpenWeatherAPI.Configuration;
 using System.Net.Http;
 
-namespace API.PevisaoDoTempo.Infra.External.OpenWeatherAPI
+namespace API.PrevisaoDoTempo.Infra.External.OpenWeatherAPI
 {
     public abstract class BaseService
     {

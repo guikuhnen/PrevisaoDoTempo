@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace API.PevisaoDoTempo.Infra.External.DTOs
+namespace API.PrevisaoDoTempo.Infra.External.DTOs
 {
     /*
      * DTOs padrão para retorno da API do OpenWeather

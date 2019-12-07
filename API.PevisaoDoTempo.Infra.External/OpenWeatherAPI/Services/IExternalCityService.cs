@@ -1,6 +1,6 @@
-﻿using API.PevisaoDoTempo.Infra.External.DTOs;
+﻿using API.PrevisaoDoTempo.Infra.External.DTOs;
 
-namespace API.PevisaoDoTempo.Infra.External.OpenWeatherAPI.Services
+namespace API.PrevisaoDoTempo.Infra.External.OpenWeatherAPI.Services
 {
     public interface IExternalCityService
     {

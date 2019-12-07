@@ -1,11 +1,11 @@
 ﻿using API.PrevisaoDoTempo.Domain.Models;
-using API.PevisaoDoTempo.Infra.Data.Repository;
-using API.PevisaoDoTempo.Infra.External.OpenWeatherAPI.Services;
+using API.PrevisaoDoTempo.Infra.Data.Repository;
+using API.PrevisaoDoTempo.Infra.External.OpenWeatherAPI.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace API.PevisaoDoTempo.Application.Services
+namespace API.PrevisaoDoTempo.Application.Services
 {
     public class CityService : ICityService
     {

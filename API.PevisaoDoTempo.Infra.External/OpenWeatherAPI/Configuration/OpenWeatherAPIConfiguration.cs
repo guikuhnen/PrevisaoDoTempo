@@ -1,4 +1,4 @@
-﻿namespace API.PevisaoDoTempo.Infra.External.OpenWeatherAPI.Configuration
+﻿namespace API.PrevisaoDoTempo.Infra.External.OpenWeatherAPI.Configuration
 {
     public class OpenWeatherApiConfiguration
     {
