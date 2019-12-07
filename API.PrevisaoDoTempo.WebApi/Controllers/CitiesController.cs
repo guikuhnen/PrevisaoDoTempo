@@ -1,18 +1,16 @@
 ﻿using API.PrevisaoDoTempo.Application.Services;
+using API.PrevisaoDoTempo.Domain.Models;
+using API.PrevisaoDoTempo.Infra.External.DTOs;
 using API.PrevisaoDoTempo.Infra.External.OpenWeatherAPI.Services;
+using API.PrevisaoDoTempo.WebAPI.DTOs;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
 using System;
-using API.PrevisaoDoTempo.Domain.Models;
-using API.PrevisaoDoTempo.Infra.External.DTOs;
-using API.PrevisaoDoTempo.WebAPI.DTOs;
 
 namespace API.PrevisaoDoTempo.WebAPI.Controllers
 {
-    // TODO
-
     [Route("api/[controller]")]
     [ApiController]
     public class CitiesController : ControllerBase
@@ -32,8 +30,9 @@ namespace API.PrevisaoDoTempo.WebAPI.Controllers
         [HttpGet]
         public ActionResult<IEnumerable<CityDTO>> Get()
         {
-            var retrievedCities = _autoMapper.Map<IEnumerable<CityDTO>>(this._cityService.GetAllCities());
-            return Ok(retrievedCities);
+            IEnumerable<CityDTO> cities = _autoMapper.Map<IEnumerable<CityDTO>>(this._cityService.GetAllCities());
+
+            return Ok(cities);
         }
 
         // POST api/cities
@@ -42,8 +41,8 @@ namespace API.PrevisaoDoTempo.WebAPI.Controllers
         [ProducesResponseType(400)]
         public ActionResult<CityDTO> Post(CityDTO newCity)
         {
-            var mappedCityDomain = _autoMapper.Map<City>(newCity);
-            var insertedCity = this._cityService.CreateCity(mappedCityDomain);
+            City city = _autoMapper.Map<City>(newCity);
+            City insertedCity = this._cityService.CreateCity(city);
 
             return CreatedAtAction("Post", _autoMapper.Map<CityDTO>(insertedCity));
         }
@@ -53,6 +52,7 @@ namespace API.PrevisaoDoTempo.WebAPI.Controllers
         public ActionResult<CityForecastDTO> GetForecast(string customCode)
         {
             CityForecastDTO cityForecastDTO = this._externalCityService.GetCityForecast(customCode);
+
             return Ok(cityForecastDTO);
         }
 
@@ -63,14 +63,15 @@ namespace API.PrevisaoDoTempo.WebAPI.Controllers
         public ActionResult<List<CityDTO>> SearchCities(string cityName)
         {
             if (string.IsNullOrWhiteSpace(cityName) || cityName.Length < 3)
-                return BadRequest(new ArgumentException("O nome da cidade deve ter no mínimo 3 caracteres."));
+                return BadRequest(new ArgumentException("Por favor digite 3 ou mais caracteres para buscar a cidade."));
 
             FoundCitiesDTO foundCities = this._externalCityService.GetCitiesByName(cityName);
-            var convertedCities = foundCities.list
+
+            List<CityDTO> convertedCities = foundCities.list
                 .Select(foundCity => _autoMapper.Map<CityDTO>(foundCity))
                 .ToList();
+
             return Ok(convertedCities);
         }
-
     }
 }
