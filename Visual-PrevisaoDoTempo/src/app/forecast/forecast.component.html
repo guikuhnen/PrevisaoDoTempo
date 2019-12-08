@@ -15,19 +15,19 @@
           <div class="card">
             <div class="card-header text-center">
               <img [src]="'http://openweathermap.org/img/w/' +
-                              forecast.weather[0].icon +
+                              forecast.weather_icon +
                               '.png'" />
               <div class="card-title">
-                {{this.formatDateToGraph(forecast.dt)}}
+                {{forecast.dt_txt | date: 'dd/MM/yyyy'}}
               </div>
             </div>
             <div class="card-body">
               <p class="card-text">
-                Temperatura: {{fixTemperature(forecast.main.temp)}} ºC
+                Temperatura: {{formatTemperature(forecast.temp)}} ºC
                 <br />
-                Ventos: {{forecast.wind.speed}} m/s
+                Vento: {{windSpeedConvertion(forecast.wind_speed)}} km/h
                 <br />
-                Pressão Atmosférica: {{forecast.main.pressure}}
+                Temp. Min/Max: {{formatTemperature(forecast.temp_min)}} ºC / {{formatTemperature(forecast.temp_max)}} ºC
               </p>
             </div>
           </div>

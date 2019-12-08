@@ -11,7 +11,7 @@ import { CommonService } from '../services/common.service';
   styleUrls: ['./forecast.component.css']
 })
 export class ForecastComponent implements OnInit {
-  forecastInfo: CityForecast = { message: '', cod: '', list: null, cnt: 0 };
+  forecastInfo: CityForecast = { list: null };
   temperatureChart: any;
   humidityPressureChart: any;
   cityCustomCode: string;
@@ -36,22 +36,11 @@ export class ForecastComponent implements OnInit {
     );
   }
 
-  getDates(): string[] {
-    let weatherDates = [];
-    this.forecastInfo.list
-      .map(res => res.dt)
-      .forEach((res: number) => {
-        weatherDates.push(this.commonService.formatDateFromNumber(res));
-      });
-    return weatherDates;
-  }
-
-  formatDateToGraph(jsDateAsNumber: number): string {
-    return this.commonService
-      .formatDateFromNumber(jsDateAsNumber);
-  }
-
-  fixTemperature(temp: number): string {
+  formatTemperature(temp: number): string {
     return temp.toFixed(0);
+  }
+
+  windSpeedConvertion(windSpeed: number): string {
+    return (windSpeed * 3.6).toFixed(0);
   }
 }
