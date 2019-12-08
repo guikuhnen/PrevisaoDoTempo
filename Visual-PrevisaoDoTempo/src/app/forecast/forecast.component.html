@@ -1,40 +1,38 @@
-<div class="mt-4">
+<div class="mt-1">
   <a [routerLink]="['/home']">
-    <i class="fa fa-arrow-circle-left"></i> Voltar Para tela inicial
+    <i class="fa fa-arrow-circle-left"></i> Voltar para tela inicial
   </a>
 </div>
 
 <div class="card pb-2 mt-4">
-  <div class="card-header text-center">
-    Previsão do Tempo (a cada 3 horas)
+  <div id="headerForecast" class="card-header text-center text-white">
+    <h5 class="card-title mb-0">Previsão do tempo para os próximos 5 dias</h5>
   </div>
   <div class="card-body">
-    <app-forecast-carousel [cityForecast]="this.forecastInfo">
-    </app-forecast-carousel>
-  </div>
-</div>
-
-<hr />
-
-<div class="card pb-2 mt-4">
-  <div class="card-header text-center">
-    Variação de Temperatura (a cada 3 horas)
-  </div>
-  <div class="card-body">
-    <div [hidden]="!temperatureChart">
-      <canvas id="temperatureChart">{{ temperatureChart }}</canvas>
-    </div>
-  </div>
-</div>
-
-<hr />
-<div class="card pb-2 mt-4">
-  <div class="card-header text-center">
-    Variação de Umidade e Pressão Atmosférica (a cada 3 horas)
-  </div>
-  <div class="card-body">
-    <div [hidden]="!humidityPressureChart">
-      <canvas id="humidityPressureChart">{{ humidityPressureChart }}</canvas>
+    <div [hidden]="!this.forecastInfo" id="cartoes-clima">
+      <div class=" row w-100 mx-auto">
+        <div class="col-md-4" *ngFor="let forecast of this.forecastInfo.list; let index = index">
+          <div class="card">
+            <div class="card-header text-center">
+              <img [src]="'http://openweathermap.org/img/w/' +
+                              forecast.weather[0].icon +
+                              '.png'" />
+              <div class="card-title">
+                {{this.formatDateToGraph(forecast.dt)}}
+              </div>
+            </div>
+            <div class="card-body">
+              <p class="card-text">
+                Temperatura: {{fixTemperature(forecast.main.temp)}} ºC
+                <br />
+                Ventos: {{forecast.wind.speed}} m/s
+                <br />
+                Pressão Atmosférica: {{forecast.main.pressure}}
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { WeatherService } from '../services/weather/weather.service';
 import { AlertifyService } from '../services/alertify/alertify.service';
-import { Chart } from 'chart.js';
 import { CityForecast } from '../models/city-forecast';
 import { CommonService } from '../services/common.service';
 
@@ -30,87 +29,11 @@ export class ForecastComponent implements OnInit {
     this.weatherService.getForecast(this.cityCustomCode).subscribe(
       (forecast: CityForecast) => {
         this.forecastInfo = forecast;
-        this.createTemperatureChart();
-        this.createHumidityPressureChart();
       },
       error => {
         this.alertify.error(error);
       }
     );
-  }
-
-  createHumidityPressureChart() {
-    const humidity = this.forecastInfo.list.map(res => res.main.humidity);
-    const pressure = this.forecastInfo.list.map(res => res.main.pressure);
-
-    this.humidityPressureChart = new Chart('humidityPressureChart', {
-      type: 'bar',
-      data: {
-        labels: this.getDates(),
-        datasets: [
-          {
-            data: humidity,
-            backgroundColor: '#3cba9f',
-            fill: true,
-            label: 'Umidade do ar (%)'
-          },
-          {
-            data: pressure,
-            backgroundColor: '#ffcc00',
-            fill: true,
-            label: 'Pressão Atmosférica'
-          }
-        ]
-      },
-      options: {
-        legend: {
-          display: true
-        },
-        scales: {
-          xAxes: [{ display: true }],
-          yAxes: [{ display: true }]
-        }
-      }
-    });
-  }
-
-  createTemperatureChart() {
-    const tempMax = this.forecastInfo.list.map(res =>
-      res.main.temp_max.toFixed(2)
-    );
-    const tempMin = this.forecastInfo.list.map(res =>
-      res.main.temp_min.toFixed(2)
-    );
-
-    this.temperatureChart = new Chart('temperatureChart', {
-      type: 'line',
-      data: {
-        labels: this.getDates(),
-        datasets: [
-          {
-            data: tempMax,
-            borderColor: '#3cba9f',
-            fill: true,
-            label: 'Temperatura Máxima (ºC)'
-          },
-          {
-            data: tempMin,
-            borderColor: '#ffcc00',
-            fill: true,
-            label: 'Temperatura Mínima (ºC)'
-          }
-        ]
-      },
-      options: {
-        legend: {
-          display: true
-        },
-        scales: {
-          xAxes: [{ display: true }],
-          yAxes: [{ display: true }]
-        }
-      }
-    });
   }
 
   getDates(): string[] {
@@ -121,5 +44,14 @@ export class ForecastComponent implements OnInit {
         weatherDates.push(this.commonService.formatDateFromNumber(res));
       });
     return weatherDates;
+  }
+
+  formatDateToGraph(jsDateAsNumber: number): string {
+    return this.commonService
+      .formatDateFromNumber(jsDateAsNumber);
+  }
+
+  fixTemperature(temp: number): string {
+    return temp.toFixed(0);
   }
 }

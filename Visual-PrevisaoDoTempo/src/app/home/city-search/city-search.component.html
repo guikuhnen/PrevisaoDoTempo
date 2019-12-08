@@ -1,68 +1,46 @@
-<div class="card text-center">
-  <div class="card-header bg-primary text-white">
-    <h5 class="card-title mb-0">Pesquisar & Cadastrar Cidades</h5>
+<div class="container text-center">
+  <h1>Será que vai chover?</h1>
+  <h6>Caso queira descobrir, pesquise a sua cidade abaixo e adicione-a lista para checar a previsão do tempo.</h6>
+</div>
+<br />
+<form #searchCityForm (ngSubmit)="this.searchCities()" class="form-inline">
+  <div class="mx-auto d-block w-100">
+    <div class="input-group">
+      <input type="text" class="form-control" id="cityName" name="cityName" placeholder="Digite o nome da cidade"
+        [(ngModel)]="this.model.cityName" />
+      <span class="input-group-btn" style="padding-left: 10px;">
+        <button type="submit" class="btn btn-primary">
+          Buscar <i class="fa fa-search"></i>
+        </button>
+      </span>
+    </div>
   </div>
-  <div class="card-body">
-    <form #searchCityForm (ngSubmit)="this.searchCities()" class="form-inline">
-      <div class="form-group mx-auto d-block w-100">
-        <label for="cityName" class="sr-only">
-          Nome da Cidade
-        </label>
-        <div class="input-group">
-          <input type="text" class="form-control" id="cityName" name="cityName"
-            placeholder="Digite o nome da cidade que deseja pesquisar" [(ngModel)]="this.model.cityName" />
-          <span class="input-group-btn">
-            <button type="submit" class="btn btn-primary">
-              Buscar <i class="fa fa-search"></i>
-            </button>
-          </span>
-        </div>
-      </div>
-    </form>
-
-    <div class="mt-2">
-      <div class="card text-center">
-        <div class="alert alert-warning mb-0" role="alert" *ngIf="this.foundCities.length == 0 && this.pesquisaFeita">
-          Não foi possível encontrar a cidade informada.
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item" *ngFor="let foundCity of this.foundCities">
-            <div class="d-flex justify-content-between align-items-center">
-              <div class="m-0">
-                <span>{{ foundCity.name }}, {{ foundCity.country }}</span>
-                <span class="mx-2 mb-3">
-                  <img class="found-city-flag" [src]="
+</form>
+<div class="mt-1">
+  <div class="card text-center" [style.visibility]="this.pesquisaFeita ? 'visible' : 'hidden'">
+    <div class="alert alert-warning mb-0" role="alert" *ngIf="this.foundCities.length == 0 && this.pesquisaFeita">
+      Não foi possível encontrar a cidade informada.
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item" *ngFor="let foundCity of this.foundCities">
+        <div class="d-flex justify-content-between align-items-center">
+          <div class="m-0">
+            <span>{{ foundCity.name }}, {{ foundCity.country }}</span>
+            <span class="mx-2 mb-3">
+              <img class="found-city-flag" [src]="
                       'http://openweathermap.org/images/flags/' +
                       foundCity.country.toLowerCase() +
                       '.png'
                     " />
-                </span>
-                <div class="geographic-info">
-                  <span class="d-block d-md-inline" *ngIf="foundCity.latitude">
-                    <i class="fa fa-map-marker"></i>
-                    Latitude:
-                    <span class="geo-information__location">
-                      {{ foundCity.latitude }}
-                    </span>
-                  </span>
-                  <span class="d-block d-md-inline" class="ml-md-3" *ngIf="foundCity.longitude">
-                    <i class="fa fa-map-marker"></i>
-                    Longitude:
-                    <span class="geo-information__location">
-                      {{ foundCity.longitude }}
-                    </span>
-                  </span>
-                </div>
-              </div>
-              <div>
-                <button type="submit" class="btn btn-success ml-2" (click)="saveCity(foundCity)">
-                  Cadastrar <i class="fa fa-plus"></i>
-                </button>
-              </div>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
+            </span>
+          </div>
+          <div>
+            <button type="submit" class="btn btn-success ml-2" (click)="saveCity(foundCity)">
+              Cadastrar <i class="fa fa-plus"></i>
+            </button>
+          </div>
+        </div>
+      </li>
+    </ul>
   </div>
 </div>

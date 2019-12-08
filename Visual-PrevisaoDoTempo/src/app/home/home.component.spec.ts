@@ -6,7 +6,6 @@ import { AppRoutingModule } from '../app-routing.module';
 import { ForecastComponent } from '../forecast/forecast.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ForecastCarouselComponent } from '../forecast/forecast-carousel/forecast-carousel.component';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -23,8 +22,7 @@ describe('HomeComponent', () => {
         HomeComponent,
         CityListComponent,
         CitySearchComponent,
-        ForecastComponent,
-        ForecastCarouselComponent
+        ForecastComponent        
       ]
     })
       .compileComponents();

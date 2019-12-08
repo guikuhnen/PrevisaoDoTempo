@@ -8,7 +8,6 @@ import { CitySearchComponent } from './home/city-search/city-search.component';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule } from '@angular/forms';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { ForecastCarouselComponent } from './forecast/forecast-carousel/forecast-carousel.component';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -24,8 +23,7 @@ describe('AppComponent', () => {
         ForecastComponent,
         HomeComponent,
         CityListComponent,
-        CitySearchComponent,
-        ForecastCarouselComponent
+        CitySearchComponent
       ],
     }).compileComponents();
   }));

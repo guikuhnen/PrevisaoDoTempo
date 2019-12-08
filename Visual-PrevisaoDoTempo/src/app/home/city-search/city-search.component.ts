@@ -7,7 +7,7 @@ import { CityService } from 'src/app/services/city/city.service';
 @Component({
   selector: 'app-city-search',
   templateUrl: './city-search.component.html',
-  styleUrls: ['./city-search.component.scss']
+  styleUrls: ['./city-search.component.css']
 })
 export class CitySearchComponent implements OnInit {
   foundCities: City[] = [];
@@ -18,12 +18,12 @@ export class CitySearchComponent implements OnInit {
     private weatherService: WeatherService,
     private alertify: AlertifyService,
     private cityService: CityService
-  ) {}
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   searchCities(): void {
-    if (this.model.cityName === undefined || this.model.cityName.length === 0) {
+    if (this.model.cityName === undefined || this.model.cityName.length === 0 || this.model.cityName.length < 3) {
       this.alertify.error(
         'Por favor digite 3 ou mais caracteres para buscar a cidade.'
       );

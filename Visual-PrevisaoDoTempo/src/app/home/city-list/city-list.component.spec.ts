@@ -6,7 +6,6 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { HomeComponent } from '../home.component';
 import { ForecastComponent } from 'src/app/forecast/forecast.component';
 import { CitySearchComponent } from '../city-search/city-search.component';
-import { ForecastCarouselComponent } from 'src/app/forecast/forecast-carousel/forecast-carousel.component';
 
 describe('CityListComponent', () => {
   let component: CityListComponent;
@@ -23,8 +22,7 @@ describe('CityListComponent', () => {
         CityListComponent,
         HomeComponent,
         ForecastComponent,
-        CitySearchComponent,
-        ForecastCarouselComponent
+        CitySearchComponent
       ]
     })
       .compileComponents();
