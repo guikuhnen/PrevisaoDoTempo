@@ -1,0 +1,40 @@
+<div class="mt-4">
+  <a [routerLink]="['/home']">
+    <i class="fa fa-arrow-circle-left"></i> Voltar Para tela inicial
+  </a>
+</div>
+
+<div class="card pb-2 mt-4">
+  <div class="card-header text-center">
+    Previsão do Tempo (a cada 3 horas)
+  </div>
+  <div class="card-body">
+    <app-forecast-carousel [cityForecast]="this.forecastInfo">
+    </app-forecast-carousel>
+  </div>
+</div>
+
+<hr />
+
+<div class="card pb-2 mt-4">
+  <div class="card-header text-center">
+    Variação de Temperatura (a cada 3 horas)
+  </div>
+  <div class="card-body">
+    <div [hidden]="!temperatureChart">
+      <canvas id="temperatureChart">{{ temperatureChart }}</canvas>
+    </div>
+  </div>
+</div>
+
+<hr />
+<div class="card pb-2 mt-4">
+  <div class="card-header text-center">
+    Variação de Umidade e Pressão Atmosférica (a cada 3 horas)
+  </div>
+  <div class="card-body">
+    <div [hidden]="!humidityPressureChart">
+      <canvas id="humidityPressureChart">{{ humidityPressureChart }}</canvas>
+    </div>
+  </div>
+</div>

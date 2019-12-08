@@ -1,0 +1,41 @@
+<div class="card text-center">
+  <div class="card-header bg-primary text-white">
+    <h5 class="card-title mb-0">Cidades Cadastradas</h5>
+  </div>
+  <div class="card-body">
+    <div class="row">
+      <div class="card col-md-6 card-city" *ngFor="let city of this.cities">
+        <div class="card-body">
+          <h5 class="card-title mb-0">
+            {{ city.name }}{{ city.country ? ', ' + city.country : '' }}
+          </h5>
+          <p class="card-text">
+            <img [src]="
+                'http://openweathermap.org/images/flags/' +
+                city.country.toLowerCase() +
+                '.png'
+              " />
+            <br />
+            <span *ngIf="city.latitude" class="geo-information">
+              <i class="fa fa-map-marker"></i>
+              Latitude:
+              <span class="geo-information__location">
+                {{ city.latitude }}
+              </span>
+            </span>
+            <span *ngIf="city.longitude" class="geo-information">
+              <i class="fa fa-map-marker"></i>
+              Longitude:
+              <span class="geo-information__location">
+                {{ city.longitude }}
+              </span>
+            </span>
+          </p>
+          <a class="btn btn-info" [routerLink]="['/forecast', city.customCode]">
+            PREVISÃO <i class="fa fa-arrow-circle-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
